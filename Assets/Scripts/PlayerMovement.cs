@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Bereken bewegings richting
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        
         rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
     }
 }
