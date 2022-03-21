@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MyInput();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0, 5f, 0), ForceMode.Impulse);
+        }
     }
 
     private void FixedUpdate()

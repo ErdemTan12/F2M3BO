@@ -27,8 +27,7 @@ public class PlayerCam : MonoBehaviour
         xRotation -= mouseY;
         
         // Zorgt ervoor dat je maar een bepaald aantal graden kan draaien op de X en Y assen.
-        xRotation = Mathf.Clamp(xRotation, -180f, 180f);
-        yRotation = Mathf.Clamp(yRotation, -180f, 180f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Draai de camera en verander de orientatie
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
