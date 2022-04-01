@@ -1,5 +1,3 @@
-# Update 1.1
-## Movement & Wapens
+# Update 1.2
 
-Movement is eindelijk opgelost. Je kunt nu vrij om je heen kijken. Ook heb ik een voorlopig
-wapen model toegevoegd die later functionaliteit krijgt.
+We have working movement, a working gun and an enemy!
