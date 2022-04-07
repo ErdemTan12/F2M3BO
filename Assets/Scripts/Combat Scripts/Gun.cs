@@ -2,20 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform muzzle;
+    [SerializeField] private Text _ammoCounter;
 
     float timeSinceLastShot;
 
     private void Start()
     {
-
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
+    }
+
+    private void FixedUpdate()
+    {
+        _ammoCounter.text = gunData.currentAmmo.ToString() + " / " + gunData.magSize;
     }
 
     public void StartReload()
