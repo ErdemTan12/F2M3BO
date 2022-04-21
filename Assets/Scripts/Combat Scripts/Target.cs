@@ -5,13 +5,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float health = 100f;
+    public float health = 100f;
     [SerializeField] ParticleSystem collectParticle = null;
-
-    public void Update()
-    {
-        
-    }
 
     public void TakeDamage(float damage)
     {

@@ -6,8 +6,15 @@ public class Homing : MonoBehaviour
 {
     public GameObject rocketPrefab; //reference naar de rocket prefab
     public List<GameObject> spawnPositions; //list of spawnpositions waar de rocket gaat spawnen
-    public GameObject target; //reference naar de target
+    public GameObject target; //reference naar de target  
+    public IDamageable targetDamage;
+
     [SerializeField] public float rocketSpeed = 20f; //de snelheid van de raket
+
+    public void Start()
+    {
+        targetDamage = target.GetComponent<IDamageable>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,7 +25,10 @@ public class Homing : MonoBehaviour
             rocket.transform.LookAt(target.transform); // zorgt ervoor dat de raket naar de target kijkt
             StartCoroutine(SendHoming(rocket)); // homed de raket naar de target
         }
+
+
     }
+
     public IEnumerator SendHoming(GameObject rocket)
     {   //while loop lol
         while (Vector3.Distance(target.transform.position, rocket.transform.position) > 0.3f) //chekt de distance van de raket en de target. 
@@ -28,6 +38,7 @@ public class Homing : MonoBehaviour
             yield return null; // wacht op de volgende frame
         }
 
+        targetDamage.TakeDamage(100);
         Destroy(rocket); // Als alles goed gaat, gaat de raket boom
     }
 }
